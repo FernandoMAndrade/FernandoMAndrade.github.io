@@ -20,7 +20,7 @@
 .dark-mode {
   --primary-color: #4f92d6; /* Lighter TypeScript blue */
   --secondary-color: #2d3748; /* Darker Cypress shade */
-  --accent-color: #ff8c5a; /* Lighter Postman orange */
+  --accent-color: #4f92d6; /* Match primary for monochromatic look */
   --text-primary: #e2e8f0;
   --text-secondary: #a0aec0;
   --text-light: #f7fafc;
@@ -271,6 +271,12 @@ header {
   padding: 160px 0 80px;
   background: linear-gradient(135deg, var(--bg-secondary) 0%, #e9ecef 100%);
   text-align: center;
+}
+
+/* Dark mode hero section - no gradient */
+.dark-mode .hero-section {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .hero-content h1 {

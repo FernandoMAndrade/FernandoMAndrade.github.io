@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found | Fernando Moura Andrade - QA Engineer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        padding: 0 20px;
+      }
+
+      .error-code {
+        font-size: 8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        line-height: 1;
+      }
+
+      .error-message {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .error-description {
+        max-width: 600px;
+        margin-bottom: 2rem;
+      }
+    </style>
+  </head>
+  <body class="light-mode">
+    <div class="error-container">
+      <div class="error-code">404</div>
+      <h1 class="error-message">Page Not Found</h1>
+      <p class="error-description">
+        The page you are looking for might have been removed, had its name
+        changed, or is temporarily unavailable.
+      </p>
+      <a href="/" class="btn primary-btn">
+        <i class="fa-solid fa-house" aria-hidden="true"></i> Back to Home
+      </a>
+    </div>
+
+    <script>
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem("theme");
+      const body = document.body;
+
+      if (savedTheme) {
+        body.className = savedTheme === "dark" ? "dark-mode" : "light-mode";
+      } else {
+        // Check if user prefers dark mode
+        const prefersDarkMode = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        body.className = prefersDarkMode ? "dark-mode" : "light-mode";
+      }
+    </script>
+  </body>
+</html>

@@ -1,3 +1,36 @@
+// Theme toggle functionality
+function initThemeToggle() {
+  const themeToggleBtn = document.getElementById("theme-toggle-btn");
+  const body = document.body;
+
+  // Check for saved theme preference or use preferred color scheme
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme) {
+    body.className = savedTheme === "dark" ? "dark-mode" : "light-mode";
+  } else {
+    // Check if user prefers dark mode
+    const prefersDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    body.className = prefersDarkMode ? "dark-mode" : "light-mode";
+  }
+
+  // Toggle theme when button is clicked
+  themeToggleBtn.addEventListener("click", () => {
+    if (body.classList.contains("dark-mode")) {
+      body.classList.replace("dark-mode", "light-mode");
+      localStorage.setItem("theme", "light");
+    } else {
+      body.classList.replace("light-mode", "dark-mode");
+      localStorage.setItem("theme", "dark");
+    }
+  });
+}
+
+// Initialize theme toggle when DOM is loaded
+document.addEventListener("DOMContentLoaded", initThemeToggle);
+
 // Set current year in footer
 document.getElementById("current-year").textContent = new Date().getFullYear();
 

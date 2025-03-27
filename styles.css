@@ -325,6 +325,30 @@ header {
   background-color: var(--bg-secondary);
 }
 
+.skills-category-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.skills-category-title:first-of-type {
+  margin-top: 0;
+}
+
+.skills-category-title i {
+  font-size: 1.75rem;
+  color: var(--primary-color);
+}
+
+.skills-category-title h3 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
+
 .skills-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -349,6 +373,13 @@ header {
   text-align: center;
 }
 
+.skill-category h4 {
+  color: var(--primary-color);
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+}
+
 .skill-items {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -356,11 +387,18 @@ header {
 }
 
 .skill-item {
+  padding: 0.5rem;
+  min-height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  gap: 0.5rem;
+}
+
+.skill-item span {
+  margin-top: 0.5rem;
+  line-height: 1.3;
 }
 
 .skill-item i {
@@ -727,4 +765,22 @@ section {
 .dark-mode a:focus,
 .dark-mode button:focus {
   outline-color: var(--accent-color);
+}
+
+/* Fix for the fa-cards icon which might not exist in Font Awesome */
+.fa-cards:before {
+  content: "\f3bf"; /* Using the playing cards icon as a substitute */
+}
+
+/* Responsive adjustments for the enhanced skills section */
+@media screen and (max-width: 768px) {
+  .skills-category-title {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skills-category-title h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 }
